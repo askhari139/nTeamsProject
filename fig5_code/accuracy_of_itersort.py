@@ -6,6 +6,7 @@ import os
 
 import algorithm as alg
 from algorithm import make_dir
+import create_matrix as cm
 
 # enter range of densities
 density_array= [0.3, 0.7, 1] 
@@ -32,7 +33,7 @@ for iterant in range(len(team_array_types)):
         df["sl no"]= np.arange(0,1000)
         array_confusion=[]
         for i in range(1000):
-            Adj, array_ranges= alg.generate_n_team_matrix_sparse(team_array= team_array, density_matrix= density_matrix)
+            Adj, array_ranges= cm.generate_n_team_matrix_sparse(team_array= team_array, density_matrix= density_matrix)
             array_team_nodes= array_ranges[:-1]
             array_team_nodes=[list(i) for i in array_team_nodes]
             array_pred=alg.iteratively_perform_sort(Adj)
